@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBQLXeMayModelStoreContainer" CdmEntityContainer="DBQLXeMayConnection">
+    <EntitySetMapping Name="DangKyXeMays">
+      <EntityTypeMapping TypeName="DBQLXeMayModel.DangKyXeMay">
+        <MappingFragment StoreEntitySet="DangKyXeMay">
+          <ScalarProperty Name="ToKhaiDK_ID" ColumnName="ToKhaiDK_ID" />
+          <ScalarProperty Name="registerID" ColumnName="registerID" />
+          <ScalarProperty Name="co_ownerName" ColumnName="co_ownerName" />
+          <ScalarProperty Name="co_ownerCMND" ColumnName="co_ownerCMND" />
+          <ScalarProperty Name="co_ownerNgayCap" ColumnName="co_ownerNgayCap" />
+          <ScalarProperty Name="co_ownerNoiCap" ColumnName="co_ownerNoiCap" />
+          <ScalarProperty Name="Co_ownAdress" ColumnName="Co_ownAdress" />
+          <ScalarProperty Name="LoaiXeMay" ColumnName="LoaiXeMay" />
+          <ScalarProperty Name="MauSon" ColumnName="MauSon" />
+          <ScalarProperty Name="NhanHieu" ColumnName="NhanHieu" />
+          <ScalarProperty Name="CongSuat" ColumnName="CongSuat" />
+          <ScalarProperty Name="NuocSX" ColumnName="NuocSX" />
+          <ScalarProperty Name="NamSX" ColumnName="NamSX" />
+          <ScalarProperty Name="SoDongCo" ColumnName="SoDongCo" />
+          <ScalarProperty Name="SoKhung" ColumnName="SoKhung" />
+          <ScalarProperty Name="KichThuoc" ColumnName="KichThuoc" />
+          <ScalarProperty Name="TrongLuong" ColumnName="TrongLuong" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DBQLXeMayModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DBQLXeMayModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="NgayCap" ColumnName="NgayCap" />
+          <ScalarProperty Name="NoiCap" ColumnName="NoiCap" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

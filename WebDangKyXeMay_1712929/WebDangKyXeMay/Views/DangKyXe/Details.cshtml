@@ -1,0 +1,254 @@
+﻿@model WebDangKyXeMay.Models.DangKyXeMay
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Thông tin chi tiết tờ khai đăng kí xe máy</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.ToKhaiDK_ID)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToKhaiDK_ID)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.registerID)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.registerID)
+        </dd>
+
+        <dt>
+            <p>
+                Tên người dùng
+            </p>
+        </dt>
+        <dd>
+            @(Model.registerID==null?"":Model.User.UserName)
+        </dd>
+
+        <dt>
+            <p>
+                CMND
+            </p>
+        </dt>
+        <dd>
+            @(Model.registerID == null ? "" : Model.User.CMND)
+        </dd>
+
+        <dt>
+            <p>
+                Ngày Cấp
+            </p>
+        </dt>
+        <dd>
+            @(Model.registerID == null ? "" : Model.User.NgayCap.ToString())
+        </dd>
+
+        <dt>
+            <p>
+                Nơi Cấp
+            </p>
+        </dt>
+        <dd>
+            @(Model.registerID == null ? "" : Model.User.NoiCap)
+        </dd>
+
+        <dt>
+            <p>
+                Địa chỉ
+            </p>
+        </dt>
+        <dd>
+            @(Model.registerID == null ? "" : Model.User.DiaChi)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.co_ownerName)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.co_ownerName)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.co_ownerCMND)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.co_ownerCMND)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.co_ownerNgayCap)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.co_ownerNgayCap)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.co_ownerNoiCap)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.co_ownerNoiCap)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.Co_ownAdress)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Co_ownAdress)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.LoaiXeMay)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiXeMay)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.MauSon)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MauSon)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.NhanHieu)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhanHieu)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.CongSuat)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CongSuat)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.NuocSX)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NuocSX)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.NamSX)
+            </p>
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamSX)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.SoDongCo)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDongCo)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.SoKhung)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoKhung)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.KichThuoc)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KichThuoc)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.TrongLuong)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrongLuong)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            <p>
+                @Html.DisplayNameFor(model => model.UpdateDate)
+            </p>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
