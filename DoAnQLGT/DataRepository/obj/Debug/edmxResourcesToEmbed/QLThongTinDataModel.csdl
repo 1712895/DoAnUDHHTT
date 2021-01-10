@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLXeMayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BangLaiXe">
+    <Key>
+      <PropertyRef Name="maBang" />
+    </Key>
+    <Property Name="maBang" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="hangXe" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ngayTrungTuyen" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ThoiHan" Type="Int32" Nullable="false" />
+    <Property Name="IDUser" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_BangLaiXe_User" FromRole="BangLaiXe" ToRole="User" />
+  </EntityType>
+  <EntityType Name="DangKyXeMay">
+    <Key>
+      <PropertyRef Name="ToKhaiDK_ID" />
+    </Key>
+    <Property Name="ToKhaiDK_ID" Type="Int32" Nullable="false" />
+    <Property Name="registerID" Type="Int32" Nullable="false" />
+    <Property Name="co_ownerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="co_ownerCMND" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="co_ownerNgayCap" Type="DateTime" Precision="3" />
+    <Property Name="co_ownerNoiCap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Co_ownAdress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LoaiXeMay" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="MauSon" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="NhanHieu" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="CongSuat" Type="Double" />
+    <Property Name="NuocSX" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="NamSX" Type="Int32" />
+    <Property Name="SoDongCo" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="SoKhung" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="KichThuoc" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="TrongLuong" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="Self.FK_DangKyXeMay_User" FromRole="DangKyXeMay" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="CMND" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="NgayCap" Type="DateTime" Precision="3" />
+    <Property Name="NoiCap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="accountName" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <Property Name="GioiTinh" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BangLaiXe" Relationship="Self.FK_BangLaiXe_User" FromRole="User" ToRole="BangLaiXe" />
+    <NavigationProperty Name="DangKyXeMay" Relationship="Self.FK_DangKyXeMay_User" FromRole="User" ToRole="DangKyXeMay" />
+  </EntityType>
+  <Association Name="FK_BangLaiXe_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="BangLaiXe" Type="Self.BangLaiXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="BangLaiXe">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DangKyXeMay_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="DangKyXeMay" Type="Self.DangKyXeMay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="DangKyXeMay">
+        <PropertyRef Name="registerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLXeMayEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BangLaiXe" EntityType="Self.BangLaiXe" />
+    <EntitySet Name="DangKyXeMay" EntityType="Self.DangKyXeMay" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <AssociationSet Name="FK_BangLaiXe_User" Association="Self.FK_BangLaiXe_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="BangLaiXe" EntitySet="BangLaiXe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DangKyXeMay_User" Association="Self.FK_DangKyXeMay_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="DangKyXeMay" EntitySet="DangKyXeMay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

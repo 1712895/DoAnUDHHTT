@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLXeMayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BangLaiXe">
+    <Key>
+      <PropertyRef Name="maBang" />
+    </Key>
+    <Property Name="maBang" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="hangXe" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ngayTrungTuyen" Type="date" Nullable="false" />
+    <Property Name="ThoiHan" Type="int" Nullable="false" />
+    <Property Name="IDUser" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DangKyXeMay">
+    <Key>
+      <PropertyRef Name="ToKhaiDK_ID" />
+    </Key>
+    <Property Name="ToKhaiDK_ID" Type="int" Nullable="false" />
+    <Property Name="registerID" Type="int" Nullable="false" />
+    <Property Name="co_ownerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="co_ownerCMND" Type="char" MaxLength="10" />
+    <Property Name="co_ownerNgayCap" Type="datetime" />
+    <Property Name="co_ownerNoiCap" Type="nvarchar" MaxLength="50" />
+    <Property Name="Co_ownAdress" Type="nvarchar" MaxLength="100" />
+    <Property Name="LoaiXeMay" Type="char" MaxLength="50" />
+    <Property Name="MauSon" Type="char" MaxLength="50" />
+    <Property Name="NhanHieu" Type="char" MaxLength="50" />
+    <Property Name="CongSuat" Type="float" />
+    <Property Name="NuocSX" Type="char" MaxLength="50" />
+    <Property Name="NamSX" Type="int" />
+    <Property Name="SoDongCo" Type="char" MaxLength="100" />
+    <Property Name="SoKhung" Type="char" MaxLength="100" />
+    <Property Name="KichThuoc" Type="char" MaxLength="100" />
+    <Property Name="TrongLuong" Type="char" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+    <Property Name="SDT" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="CMND" Type="char" MaxLength="10" />
+    <Property Name="NgayCap" Type="datetime" />
+    <Property Name="NoiCap" Type="nvarchar" MaxLength="50" />
+    <Property Name="accountName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="Role" Type="int" Nullable="false" />
+    <Property Name="GioiTinh" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BangLaiXe_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="BangLaiXe" Type="Self.BangLaiXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="BangLaiXe">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DangKyXeMay_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="DangKyXeMay" Type="Self.DangKyXeMay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="IDUser" />
+      </Principal>
+      <Dependent Role="DangKyXeMay">
+        <PropertyRef Name="registerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLXeMayModelStoreContainer">
+    <EntitySet Name="BangLaiXe" EntityType="Self.BangLaiXe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DangKyXeMay" EntityType="Self.DangKyXeMay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BangLaiXe_User" Association="Self.FK_BangLaiXe_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="BangLaiXe" EntitySet="BangLaiXe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DangKyXeMay_User" Association="Self.FK_DangKyXeMay_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="DangKyXeMay" EntitySet="DangKyXeMay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
