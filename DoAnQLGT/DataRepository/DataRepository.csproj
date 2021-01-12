@@ -75,6 +75,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLThongTinDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ThongTinLuat.cs">
+      <DependentUpon>QLThongTinDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>QLThongTinDataModel.tt</DependentUpon>
     </Compile>

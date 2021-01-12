@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="QLXeMayModel.User" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
         <AssociationConnector Association="QLXeMayModel.FK_BangLaiXe_User" ManuallyRouted="false" />
         <AssociationConnector Association="QLXeMayModel.FK_DangKyXeMay_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLXeMayModel.ThongTinLuat" Width="1.5" PointX="6.5" PointY="1.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

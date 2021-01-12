@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLXeMayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLXeMayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BangLaiXe">
           <Key>
             <PropertyRef Name="maBang" />
@@ -38,6 +38,18 @@
           <Property Name="TrongLuong" Type="char" MaxLength="100" />
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QLXeMay.dbo.ThongTinLuat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ThongTinLuat">
+          <Key>
+            <PropertyRef Name="maID" />
+            <PropertyRef Name="TenChuDe" />
+            <PropertyRef Name="ThongTinDayDu" />
+          </Key>
+          <Property Name="maID" Type="int" Nullable="false" />
+          <Property Name="TenChuDe" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ThongTinDayDu" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -84,6 +96,13 @@
           <EntitySet Name="BangLaiXe" EntityType="Self.BangLaiXe" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DangKyXeMay" EntityType="Self.DangKyXeMay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThongTinLuat" EntityType="Self.ThongTinLuat" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ThongTinLuat].[maID] AS [maID], 
+    [ThongTinLuat].[TenChuDe] AS [TenChuDe], 
+    [ThongTinLuat].[ThongTinDayDu] AS [ThongTinDayDu]
+    FROM [dbo].[ThongTinLuat] AS [ThongTinLuat]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_BangLaiXe_User" Association="Self.FK_BangLaiXe_User">
             <End Role="User" EntitySet="User" />
             <End Role="BangLaiXe" EntitySet="BangLaiXe" />
@@ -93,8 +112,7 @@
             <End Role="DangKyXeMay" EntitySet="DangKyXeMay" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLXeMayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -189,7 +207,18 @@
             <End Role="User" EntitySet="User" />
             <End Role="DangKyXeMay" EntitySet="DangKyXeMay" />
           </AssociationSet>
+          <EntitySet Name="ThongTinLuat" EntityType="QLXeMayModel.ThongTinLuat" />
         </EntityContainer>
+        <EntityType Name="ThongTinLuat">
+          <Key>
+            <PropertyRef Name="maID" />
+            <PropertyRef Name="TenChuDe" />
+            <PropertyRef Name="ThongTinDayDu" />
+          </Key>
+          <Property Name="maID" Type="Int32" Nullable="false" />
+          <Property Name="TenChuDe" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ThongTinDayDu" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -247,6 +276,15 @@
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThongTinLuat">
+            <EntityTypeMapping TypeName="QLXeMayModel.ThongTinLuat">
+              <MappingFragment StoreEntitySet="ThongTinLuat">
+                <ScalarProperty Name="ThongTinDayDu" ColumnName="ThongTinDayDu" />
+                <ScalarProperty Name="TenChuDe" ColumnName="TenChuDe" />
+                <ScalarProperty Name="maID" ColumnName="maID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -22,12 +22,12 @@ namespace ConsoleClient.Controllers
         [HttpGet]
         public List<BangLaiXe> LoadAllBLX()
         {
-            return entities.BangLaiXes.ToList();
+            return entities.BangLaiXe.ToList();
         }
         [HttpGet]
         public HttpResponseMessage LoadBLXById(int id)
         {
-            var entity = entities.BangLaiXes.FirstOrDefault(e => e.IDUser == id);
+            var entity = entities.BangLaiXe.FirstOrDefault(e => e.IDUser == id);
             if (entity != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, entity);

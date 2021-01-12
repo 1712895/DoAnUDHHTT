@@ -14,5 +14,11 @@ namespace ConsoleClient.Controllers
 
             return View();
         }
+        public ActionResult Team()
+        {
+            
+
+            return View();
+        }
     }
 }

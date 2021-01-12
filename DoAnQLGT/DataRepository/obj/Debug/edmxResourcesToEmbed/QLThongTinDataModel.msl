@@ -55,5 +55,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ThongTinLuat">
+      <EntityTypeMapping TypeName="QLXeMayModel.ThongTinLuat">
+        <MappingFragment StoreEntitySet="ThongTinLuat">
+          <ScalarProperty Name="ThongTinDayDu" ColumnName="ThongTinDayDu" />
+          <ScalarProperty Name="TenChuDe" ColumnName="TenChuDe" />
+          <ScalarProperty Name="maID" ColumnName="maID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

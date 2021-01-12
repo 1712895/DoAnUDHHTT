@@ -22,12 +22,12 @@ namespace ConsoleClient.Controllers
         [HttpGet]
         public List<User> LoadAllUser()
         {
-            return entities.Users.ToList();
+            return entities.User.ToList();
         }
         [HttpGet]
         public HttpResponseMessage LoadUserById(int id)
         {
-            var entity = entities.Users.FirstOrDefault(e => e.IDUser == id);
+            var entity = entities.User.FirstOrDefault(e => e.IDUser == id);
             if(entity != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, entity);
@@ -43,7 +43,7 @@ namespace ConsoleClient.Controllers
         {
             try
             {
-                var entity = entities.Users.FirstOrDefault(e => e.IDUser == id);
+                var entity = entities.User.FirstOrDefault(e => e.IDUser == id);
                 if (entity == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User voi Id = " + id.ToString() + " Khong tim thay");
@@ -67,7 +67,7 @@ namespace ConsoleClient.Controllers
         {
             try
             {
-                var entity = entities.Users.FirstOrDefault(e => e.IDUser == id);
+                var entity = entities.User.FirstOrDefault(e => e.IDUser == id);
                 if (entity == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "User voi Id = " + id.ToString() + " Khong tim thay");

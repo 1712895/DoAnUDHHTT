@@ -34,6 +34,18 @@
     <Property Name="CreateDate" Type="datetime" />
     <Property Name="UpdateDate" Type="datetime" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'QLXeMay.dbo.ThongTinLuat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ThongTinLuat">
+    <Key>
+      <PropertyRef Name="maID" />
+      <PropertyRef Name="TenChuDe" />
+      <PropertyRef Name="ThongTinDayDu" />
+    </Key>
+    <Property Name="maID" Type="int" Nullable="false" />
+    <Property Name="TenChuDe" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ThongTinDayDu" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="IDUser" />
@@ -79,6 +91,13 @@
     <EntitySet Name="BangLaiXe" EntityType="Self.BangLaiXe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DangKyXeMay" EntityType="Self.DangKyXeMay" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThongTinLuat" EntityType="Self.ThongTinLuat" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ThongTinLuat].[maID] AS [maID], 
+    [ThongTinLuat].[TenChuDe] AS [TenChuDe], 
+    [ThongTinLuat].[ThongTinDayDu] AS [ThongTinDayDu]
+    FROM [dbo].[ThongTinLuat] AS [ThongTinLuat]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_BangLaiXe_User" Association="Self.FK_BangLaiXe_User">
       <End Role="User" EntitySet="User" />
       <End Role="BangLaiXe" EntitySet="BangLaiXe" />

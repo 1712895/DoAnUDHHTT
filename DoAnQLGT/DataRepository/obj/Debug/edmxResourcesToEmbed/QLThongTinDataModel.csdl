@@ -91,5 +91,16 @@
       <End Role="User" EntitySet="User" />
       <End Role="DangKyXeMay" EntitySet="DangKyXeMay" />
     </AssociationSet>
+    <EntitySet Name="ThongTinLuat" EntityType="QLXeMayModel.ThongTinLuat" />
   </EntityContainer>
+  <EntityType Name="ThongTinLuat">
+    <Key>
+      <PropertyRef Name="maID" />
+      <PropertyRef Name="TenChuDe" />
+      <PropertyRef Name="ThongTinDayDu" />
+    </Key>
+    <Property Name="maID" Type="Int32" Nullable="false" />
+    <Property Name="TenChuDe" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ThongTinDayDu" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

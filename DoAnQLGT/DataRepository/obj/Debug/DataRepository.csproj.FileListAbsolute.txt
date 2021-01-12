@@ -10,3 +10,15 @@ C:\Users\Uyen Tran\source\repos\DataBangLaiXe\DataRepository\obj\Debug\DataRepos
 C:\Users\Uyen Tran\source\repos\DataBangLaiXe\DataRepository\obj\Debug\DataRepository.csproj.CopyComplete
 C:\Users\Uyen Tran\source\repos\DataBangLaiXe\DataRepository\obj\Debug\DataRepository.dll
 C:\Users\Uyen Tran\source\repos\DataBangLaiXe\DataRepository\obj\Debug\DataRepository.pdb
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\bin\Debug\DataRepository.dll.config
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\bin\Debug\DataRepository.dll
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\bin\Debug\DataRepository.pdb
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\bin\Debug\EntityFramework.dll
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\bin\Debug\EntityFramework.xml
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\obj\Debug\DataRepository.csprojAssemblyReference.cache
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\obj\Debug\DataRepository.csproj.CoreCompileInputs.cache
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\obj\Debug\DataRepository.csproj.CopyComplete
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\obj\Debug\DataRepository.dll
+C:\Users\Uyen Tran\source\repos\DoAnQLGT\DataRepository\obj\Debug\DataRepository.pdb

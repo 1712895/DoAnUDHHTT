@@ -25,8 +25,9 @@ namespace DataRepository
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BangLaiXe> BangLaiXes { get; set; }
-        public virtual DbSet<DangKyXeMay> DangKyXeMays { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<BangLaiXe> BangLaiXe { get; set; }
+        public virtual DbSet<DangKyXeMay> DangKyXeMay { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<ThongTinLuat> ThongTinLuat { get; set; }
     }
 }
